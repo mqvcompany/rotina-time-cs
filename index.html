@@ -83,9 +83,9 @@
   .summary-card-val { font-size:13px; font-weight:500; color:var(--branco); line-height:1.45; min-height:36px; }
   .summary-card-val .empty { color:#B7705F; font-weight:500; font-style:italic; font-size:11.5px; }
 
-  /* Grade */
-  .grid-wrap { max-width:1640px; margin:0 auto; padding:0 56px 60px; overflow-x:auto; -webkit-overflow-scrolling:touch; }
-  .grid-table { width:100%; border-collapse:separate; border-spacing:0; background:var(--preto-2); border:1px solid var(--linha); border-radius:10px; overflow:hidden; min-width:1100px; }
+  /* Grade — sem overflow no wrap pra não quebrar o sticky */
+  .grid-wrap { max-width:1640px; margin:0 auto; padding:0 56px 60px; }
+  .grid-table { width:100%; border-collapse:separate; border-spacing:0; background:var(--preto-2); border:1px solid var(--linha); border-radius:10px; min-width:1100px; }
   .grid-table th, .grid-table td { padding:0; vertical-align:top; border-right:1px solid var(--linha); border-bottom:1px solid var(--linha); }
   .grid-table th:last-child, .grid-table td:last-child { border-right:none; }
   .grid-table tr:last-child td { border-bottom:none; }
@@ -94,11 +94,8 @@
   .grid-table.single-person .col-head[data-person] { min-width:380px; }
 
   /* Cabeçalho colunas — sticky pra ficar visível ao rolar */
-  .grid-table thead th { position:sticky; top:64px; z-index:20; }
-  .col-head { background:var(--preto); padding:16px 16px 14px; text-align:left; position:sticky; top:64px; z-index:20; min-width:170px; }
+  .col-head { background:var(--preto); padding:16px 16px 14px; text-align:left; min-width:170px; position:sticky; top:64px; z-index:20; box-shadow:inset 0 -1px 0 var(--linha-2); }
   .col-head::after { content:""; position:absolute; left:0; right:0; bottom:0; height:3px; background:var(--col-accent, transparent); }
-  /* Sombra suave quando o thead está stuck */
-  .grid-table thead { box-shadow:0 6px 14px -8px rgba(0,0,0,.7); }
   .col-head-flex { display:flex; align-items:center; gap:12px; }
   .col-head-avatar { width:40px; height:40px; border-radius:50%; background:var(--cinza-4) center/cover no-repeat; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; color:var(--branco); border:2px solid var(--col-accent, var(--linha-2)); }
   .col-head-text { min-width:0; }
