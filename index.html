@@ -93,9 +93,12 @@
   .grid-table.single-person { min-width:600px; }
   .grid-table.single-person .col-head[data-person] { min-width:380px; }
 
-  /* Cabeçalho colunas */
-  .col-head { background:var(--preto); padding:16px 16px 14px; text-align:left; position:relative; min-width:170px; }
+  /* Cabeçalho colunas — sticky pra ficar visível ao rolar */
+  .grid-table thead th { position:sticky; top:64px; z-index:20; }
+  .col-head { background:var(--preto); padding:16px 16px 14px; text-align:left; position:sticky; top:64px; z-index:20; min-width:170px; }
   .col-head::after { content:""; position:absolute; left:0; right:0; bottom:0; height:3px; background:var(--col-accent, transparent); }
+  /* Sombra suave quando o thead está stuck */
+  .grid-table thead { box-shadow:0 6px 14px -8px rgba(0,0,0,.7); }
   .col-head-flex { display:flex; align-items:center; gap:12px; }
   .col-head-avatar { width:40px; height:40px; border-radius:50%; background:var(--cinza-4) center/cover no-repeat; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; color:var(--branco); border:2px solid var(--col-accent, var(--linha-2)); }
   .col-head-text { min-width:0; }
@@ -140,16 +143,21 @@
   .cell textarea:focus { border-color:var(--linha-3); background:rgba(0,0,0,.4); }
   .cell.nota-aberta textarea { display:block; }
 
-  /* Estados por etapa — fundo colorido */
+  /* Estados por etapa — fundo colorido (intensidade reforçada) */
   .cell[data-etapa-cor] { background:var(--etapa-bg, var(--preto-2)); }
+  /* Faixa lateral grossa com a cor da etapa (segue depois do accent da pessoa) */
+  .cell[data-etapa-cor]:not([data-etapa-cor=""]) { box-shadow:inset 6px 0 0 0 var(--etapa-cor, transparent); padding-left:18px; }
+  /* Select com cor da etapa em destaque */
+  .cell[data-etapa-cor]:not([data-etapa-cor=""]) select {
+    background-color:rgba(0,0,0,.35);
+    border-color:var(--etapa-cor, var(--linha-2));
+    color:#fff; font-weight:600;
+  }
 
   /* Linha bloqueada (17h10) */
-  tr.locked-row td.cell { background:linear-gradient(-75deg, rgba(155,123,191,.30), rgba(155,123,191,.10)) !important; }
-  tr.locked-row td.cell select { pointer-events:none; opacity:.85; font-weight:600; }
+  tr.locked-row td.cell { background:linear-gradient(-75deg, rgba(155,123,191,.45), rgba(155,123,191,.18)) !important; box-shadow:inset 6px 0 0 0 #9B7BBF; padding-left:18px; }
+  tr.locked-row td.cell select { pointer-events:none; opacity:.95; font-weight:600; background-color:rgba(0,0,0,.35); border-color:#9B7BBF; }
   tr.locked-row .time-cell { background:linear-gradient(-75deg, #16161A 0%, rgba(155,123,191,.25) 100%); }
-
-  /* Indicador WPP */
-  .cell[data-etapa="wpp"]::after { content:""; position:absolute; top:6px; left:14px; width:5px; height:5px; background:#F2E9D8; border-radius:50%; box-shadow:0 0 8px rgba(242,233,216,.7); }
 
   /* Loading / status */
   .status-bar { position:fixed; bottom:20px; right:20px; background:var(--preto-2); border:1px solid var(--linha-2); padding:10px 16px; border-radius:6px; font-size:11px; color:var(--cinza-1); letter-spacing:1.5px; text-transform:uppercase; font-weight:600; opacity:0; transition:opacity .3s; z-index:100; }
@@ -471,7 +479,7 @@
           // Linha bloqueada: força etapa
           if (isLocked) cell = { ...cell, etapa_slug: slot.lockedEtapa };
           const etapa = cell.etapa_slug ? etapaBySlug(cell.etapa_slug) : null;
-          const bgStyle = etapa ? `--etapa-bg:linear-gradient(-75deg, ${hexToRgba(etapa.cor,.28)}, ${hexToRgba(etapa.cor,.08)});` : '';
+          const bgStyle = etapa ? `--etapa-bg:linear-gradient(-75deg, ${hexToRgba(etapa.cor,.50)}, ${hexToRgba(etapa.cor,.18)});--etapa-cor:${etapa.cor};` : '';
           const hasNota = (cell.nota||'').trim().length > 0;
           html += `<td class="cell" data-etapa="${cell.etapa_slug||''}" data-person="${p.slug}" data-key="${key}" data-etapa-cor="${etapa?etapa.cor:''}" style="--col-accent:${p.cor};${bgStyle}">`;
           if (!isLocked) {
@@ -538,8 +546,15 @@
     if (cell) {
       cell.setAttribute('data-etapa', etapa_slug || '');
       const etapa = etapaBySlug(etapa_slug);
-      if (etapa) cell.style.setProperty('--etapa-bg', `linear-gradient(-75deg, ${hexToRgba(etapa.cor,.28)}, ${hexToRgba(etapa.cor,.08)})`);
-      else cell.style.removeProperty('--etapa-bg');
+      if (etapa) {
+        cell.style.setProperty('--etapa-bg', `linear-gradient(-75deg, ${hexToRgba(etapa.cor,.50)}, ${hexToRgba(etapa.cor,.18)})`);
+        cell.style.setProperty('--etapa-cor', etapa.cor);
+        cell.setAttribute('data-etapa-cor', etapa.cor);
+      } else {
+        cell.style.removeProperty('--etapa-bg');
+        cell.style.removeProperty('--etapa-cor');
+        cell.setAttribute('data-etapa-cor', '');
+      }
     }
     renderSummary();
   }
