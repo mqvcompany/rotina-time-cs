@@ -31,7 +31,7 @@
   .logo .dot { display:inline-block; width:8px; height:8px; background:var(--branco); border-radius:50%; margin-right:10px; vertical-align:middle; }
   .badge { font-size:10px; font-weight:600; letter-spacing:2.5px; color:var(--cinza-1); text-transform:uppercase; border:1px solid var(--linha-2); padding:6px 14px; border-radius:2px; }
 
-  .hero { padding:60px 56px 40px; max-width:1500px; margin:0 auto; }
+  .hero { padding:60px 56px 40px; max-width:1640px; margin:0 auto; }
   .hero-tag { display:inline-block; font-size:11px; font-weight:600; letter-spacing:3px; color:var(--cinza-1); text-transform:uppercase; margin-bottom:18px; padding:6px 12px; border:1px solid var(--linha-2); border-radius:2px; }
   .hero h1 { font-size:clamp(30px,4.2vw,48px); font-weight:700; line-height:1.05; letter-spacing:-1.8px; margin-bottom:16px; }
   .hero h1 .mute { color:var(--cinza-2); }
@@ -39,7 +39,7 @@
   .hero-sub strong { color:var(--branco); font-weight:500; }
 
   /* Toolbar */
-  .toolbar { max-width:1500px; margin:0 auto; padding:0 56px 24px; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+  .toolbar { max-width:1640px; margin:0 auto; padding:0 56px 24px; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
   .week-nav { display:flex; align-items:center; gap:10px; }
   .week-btn { background:var(--grad-soft); border:1px solid var(--linha-2); color:var(--branco); padding:9px 14px; border-radius:6px; font-size:13px; font-weight:500; cursor:pointer; transition:border-color .2s; font-family:inherit; }
   .week-btn:hover { border-color:var(--linha-3); }
@@ -53,7 +53,7 @@
   .action-btn.active { background:var(--branco); color:var(--preto); border-color:var(--branco); }
 
   /* View switcher (todos / individual) */
-  .view-switch { display:flex; max-width:1500px; margin:0 auto; padding:0 56px 24px; gap:6px; flex-wrap:wrap; align-items:center; }
+  .view-switch { display:flex; max-width:1640px; margin:0 auto; padding:0 56px 24px; gap:6px; flex-wrap:wrap; align-items:center; }
   .view-switch-label { font-size:10px; font-weight:600; letter-spacing:2.5px; color:var(--cinza-2); text-transform:uppercase; margin-right:6px; }
   .view-chip { background:transparent; border:1px solid var(--linha); color:var(--cinza-1); padding:8px 14px; border-radius:30px; font-size:12px; font-weight:500; cursor:pointer; font-family:inherit; display:inline-flex; align-items:center; gap:8px; transition:all .2s; }
   .view-chip:hover { border-color:var(--linha-3); color:var(--branco); }
@@ -62,17 +62,20 @@
   .view-chip.active .view-chip-avatar { box-shadow:0 0 0 2px var(--branco); }
 
   /* Legendas */
-  .legend { max-width:1500px; margin:0 auto; padding:0 56px 12px; }
+  .legend { max-width:1640px; margin:0 auto; padding:0 56px 12px; }
   .legend-inner { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
   .legend-title { font-size:10px; font-weight:600; letter-spacing:2.5px; color:var(--cinza-2); text-transform:uppercase; margin-right:6px; }
-  .legend-item { display:inline-flex; align-items:center; gap:7px; padding:5px 11px; border:1px solid var(--linha); border-radius:30px; font-size:11.5px; color:var(--cinza-1); }
+  .legend-item { display:inline-flex; align-items:center; gap:7px; padding:5px 11px; border:1px solid var(--linha); border-radius:30px; font-size:11.5px; color:var(--cinza-1); cursor:pointer; transition:all .2s; background:transparent; font-family:inherit; }
+  .legend-item:hover { border-color:var(--linha-3); color:var(--branco); }
+  .legend-item:hover .legend-edit-icon { opacity:1; }
+  .legend-edit-icon { opacity:0; transition:opacity .2s; font-size:10px; color:var(--cinza-2); margin-left:2px; }
   .legend-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
   .legend-add { background:transparent; border:1px dashed var(--linha-3); color:var(--cinza-1); padding:5px 12px; border-radius:30px; font-size:11px; cursor:pointer; font-family:inherit; font-weight:500; }
   .legend-add:hover { border-color:var(--branco); color:var(--branco); }
   .legend-people .legend-dot { width:14px; height:14px; border-radius:3px; }
 
   /* Resumo */
-  .summary { max-width:1500px; margin:0 auto; padding:18px 56px 30px; }
+  .summary { max-width:1640px; margin:0 auto; padding:18px 56px 30px; }
   .summary-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; }
   @media(max-width:1100px){ .summary-grid { grid-template-columns:repeat(2,1fr); } }
   .summary-card { background:var(--grad-deep); border:1px solid var(--linha); border-radius:8px; padding:16px 18px; }
@@ -81,21 +84,24 @@
   .summary-card-val .empty { color:#B7705F; font-weight:500; font-style:italic; font-size:11.5px; }
 
   /* Grade */
-  .grid-wrap { max-width:1500px; margin:0 auto; padding:0 56px 60px; overflow-x:auto; }
-  .grid-table { width:100%; border-collapse:separate; border-spacing:0; background:var(--preto-2); border:1px solid var(--linha); border-radius:10px; overflow:hidden; min-width:760px; }
+  .grid-wrap { max-width:1640px; margin:0 auto; padding:0 56px 60px; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .grid-table { width:100%; border-collapse:separate; border-spacing:0; background:var(--preto-2); border:1px solid var(--linha); border-radius:10px; overflow:hidden; min-width:1100px; }
   .grid-table th, .grid-table td { padding:0; vertical-align:top; border-right:1px solid var(--linha); border-bottom:1px solid var(--linha); }
   .grid-table th:last-child, .grid-table td:last-child { border-right:none; }
   .grid-table tr:last-child td { border-bottom:none; }
+  /* Visão individual ganha grade larga (1 coluna pessoa = mais espaço) */
+  .grid-table.single-person { min-width:600px; }
+  .grid-table.single-person .col-head[data-person] { min-width:380px; }
 
   /* Cabeçalho colunas */
-  .col-head { background:var(--preto); padding:14px 14px 12px; text-align:left; position:relative; min-width:130px; }
+  .col-head { background:var(--preto); padding:16px 16px 14px; text-align:left; position:relative; min-width:170px; }
   .col-head::after { content:""; position:absolute; left:0; right:0; bottom:0; height:3px; background:var(--col-accent, transparent); }
-  .col-head-flex { display:flex; align-items:center; gap:10px; }
-  .col-head-avatar { width:36px; height:36px; border-radius:50%; background:var(--cinza-4) var(--avatar-url, none) center/cover no-repeat; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; color:var(--branco); border:2px solid var(--col-accent, var(--linha-2)); }
+  .col-head-flex { display:flex; align-items:center; gap:12px; }
+  .col-head-avatar { width:40px; height:40px; border-radius:50%; background:var(--cinza-4) center/cover no-repeat; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; color:var(--branco); border:2px solid var(--col-accent, var(--linha-2)); }
   .col-head-text { min-width:0; }
-  .col-head .name { font-size:14px; font-weight:700; color:var(--branco); letter-spacing:-.3px; line-height:1.2; margin-bottom:2px; }
-  .col-head .role { font-size:9.5px; font-weight:600; color:var(--cinza-2); letter-spacing:1.2px; text-transform:uppercase; line-height:1.3; }
-  .col-head.time-col { min-width:80px; max-width:90px; }
+  .col-head .name { font-size:15px; font-weight:700; color:var(--branco); letter-spacing:-.3px; line-height:1.2; margin-bottom:3px; }
+  .col-head .role { font-size:10px; font-weight:600; color:var(--cinza-2); letter-spacing:1.2px; text-transform:uppercase; line-height:1.3; white-space:normal; }
+  .col-head.time-col { min-width:84px; max-width:96px; }
   .col-head.time-col .name { font-size:10.5px; color:var(--cinza-2); letter-spacing:2.5px; text-transform:uppercase; }
   .col-head.time-col::after { display:none; }
 
@@ -111,13 +117,13 @@
   .day-row td .day-date { color:var(--cinza-2); font-weight:500; letter-spacing:1.5px; margin-left:10px; }
 
   /* Coluna hora */
-  .time-cell { background:var(--preto); padding:12px 14px; }
-  .time-cell .slot-name { font-size:13px; font-weight:600; color:var(--branco); letter-spacing:-.2px; }
-  .time-cell .slot-sub { font-size:9.5px; color:var(--cinza-2); font-weight:500; letter-spacing:1px; margin-top:2px; text-transform:uppercase; }
+  .time-cell { background:var(--preto); padding:14px 16px; }
+  .time-cell .slot-name { font-size:14px; font-weight:600; color:var(--branco); letter-spacing:-.2px; }
+  .time-cell .slot-sub { font-size:9.5px; color:var(--cinza-2); font-weight:500; letter-spacing:1px; margin-top:3px; text-transform:uppercase; }
 
   /* Célula editável */
-  .cell { padding:6px 6px 6px 9px; background:var(--preto-2); position:relative; min-height:44px; border-left:3px solid var(--col-accent, transparent); }
-  .cell select { width:100%; background:transparent; border:1px solid var(--linha); color:var(--branco); padding:5px 7px; border-radius:4px; font-size:11px; font-weight:500; font-family:inherit; cursor:pointer; outline:none; appearance:none; -webkit-appearance:none; background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path d='M1 1l4 4 4-4' stroke='%237D848B' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>"); background-repeat:no-repeat; background-position:right 7px center; padding-right:22px; }
+  .cell { padding:8px 8px 8px 11px; background:var(--preto-2); position:relative; min-height:54px; border-left:3px solid var(--col-accent, transparent); }
+  .cell select { width:100%; background:transparent; border:1px solid var(--linha); color:var(--branco); padding:7px 9px; border-radius:5px; font-size:12px; font-weight:500; font-family:inherit; cursor:pointer; outline:none; appearance:none; -webkit-appearance:none; background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path d='M1 1l4 4 4-4' stroke='%237D848B' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>"); background-repeat:no-repeat; background-position:right 9px center; padding-right:24px; }
   .cell select:focus { border-color:var(--linha-3); }
   .cell select option { background:var(--preto-2); color:var(--branco); }
 
@@ -166,7 +172,7 @@
   .modal-actions { display:flex; gap:10px; justify-content:flex-end; margin-top:24px; }
 
   /* Footnote */
-  .footnote { max-width:1500px; margin:0 auto; padding:0 56px 80px; font-size:12px; color:var(--cinza-2); font-weight:300; line-height:1.7; }
+  .footnote { max-width:1640px; margin:0 auto; padding:0 56px 80px; font-size:12px; color:var(--cinza-2); font-weight:300; line-height:1.7; }
   .footnote strong { color:var(--branco-2); font-weight:500; }
 
   /* Print */
@@ -190,9 +196,26 @@
     .cell.nota-aberta textarea, .cell textarea { display:block; }
   }
 
+  @media(max-width:1280px){
+    .hero, .toolbar, .legend, .summary, .grid-wrap, .footnote, .view-switch { padding-left:32px; padding-right:32px; }
+    .header { padding:18px 32px; }
+  }
   @media(max-width:900px){
-    .hero, .toolbar, .legend, .summary, .grid-wrap, .footnote, .view-switch { padding-left:24px; padding-right:24px; }
-    .header { padding:18px 24px; }
+    .hero { padding-top:40px; padding-bottom:24px; }
+    .hero, .toolbar, .legend, .summary, .grid-wrap, .footnote, .view-switch { padding-left:20px; padding-right:20px; }
+    .header { padding:16px 20px; }
+    .toolbar { padding-bottom:16px; }
+    .view-switch { padding-bottom:16px; }
+    .summary-grid { gap:8px; }
+  }
+  @media(max-width:600px){
+    .col-head { min-width:140px; padding:12px 12px 10px; }
+    .col-head-avatar { width:32px; height:32px; font-size:11px; }
+    .col-head .name { font-size:13px; }
+    .col-head .role { font-size:9px; }
+    .cell { padding:6px 6px 6px 9px; min-height:48px; }
+    .cell select { font-size:11.5px; padding:6px 8px; }
+    .grid-table { min-width:800px; }
   }
 </style>
 </head>
@@ -253,18 +276,19 @@
 
 <div class="status-bar" id="statusBar">Salvo</div>
 
-<!-- Modal: novo tipo de atendimento -->
-<div class="modal-overlay" id="newEtapaModal">
+<!-- Modal: novo/editar tipo de atendimento -->
+<div class="modal-overlay" id="etapaModal">
   <div class="modal">
-    <h3>Novo tipo de atendimento</h3>
-    <p>Adicione uma nova etapa à rotina. Ela ficará disponível para todas as colaboradoras imediatamente.</p>
+    <h3 id="modalTitle">Novo tipo de atendimento</h3>
+    <p id="modalSub">Adicione uma nova etapa à rotina. Ela ficará disponível para todas as colaboradoras imediatamente.</p>
     <label>Nome</label>
-    <input type="text" id="newEtapaNome" placeholder="Ex.: Treinamento Interno" maxlength="60">
+    <input type="text" id="etapaNome" placeholder="Ex.: Treinamento Interno" maxlength="60">
     <label>Cor</label>
-    <div class="color-row" id="newEtapaCores"></div>
+    <div class="color-row" id="etapaCores"></div>
     <div class="modal-actions">
-      <button class="action-btn" onclick="closeNewEtapaModal()">Cancelar</button>
-      <button class="action-btn primary" onclick="saveNewEtapa()">Adicionar</button>
+      <button class="action-btn" id="btnExcluirEtapa" onclick="deleteEtapa()" style="margin-right:auto; display:none; border-color:rgba(183,112,95,.4); color:#E8A88A;">Excluir</button>
+      <button class="action-btn" onclick="closeEtapaModal()">Cancelar</button>
+      <button class="action-btn primary" onclick="saveEtapa()">Salvar</button>
     </div>
   </div>
 </div>
@@ -404,7 +428,7 @@
     const el = document.getElementById('etapasLegend');
     let html = '<span class="legend-title">Tipos de atendimento</span>';
     etapas.forEach(e => {
-      html += `<span class="legend-item"><span class="legend-dot" style="background:${e.cor}"></span>${e.nome}</span>`;
+      html += `<button class="legend-item" onclick="openEditEtapaModal('${e.slug}')" title="Clique para editar"><span class="legend-dot" style="background:${e.cor}"></span>${e.nome}<span class="legend-edit-icon">✎</span></button>`;
     });
     html += '<button class="legend-add" onclick="openNewEtapaModal()">+ Novo tipo</button>';
     el.innerHTML = html;
@@ -414,6 +438,7 @@
     const table = document.getElementById('gridTable');
     const visiveis = pessoasVisiveis();
     const totalCols = 1 + visiveis.length;
+    table.classList.toggle('single-person', visiveis.length === 1);
 
     let html = '<thead><tr>';
     html += `<th class="col-head time-col"><div class="name">Hora</div></th>`;
@@ -550,39 +575,96 @@
     loadCelulas().then(renderGrid);
   }
 
-  // ============ MODAL: NOVA ETAPA ============
+  // ============ MODAL: NOVA/EDITAR ETAPA ============
+  let modalMode = 'new'; // 'new' | 'edit'
+  let editingEtapaSlug = null;
+
   function openNewEtapaModal() {
+    modalMode = 'new';
+    editingEtapaSlug = null;
     selectedNovaEtapaCor = CORES_DISPONIVEIS[4];
-    const cores = document.getElementById('newEtapaCores');
-    cores.innerHTML = CORES_DISPONIVEIS.map(c =>
+    document.getElementById('modalTitle').textContent = 'Novo tipo de atendimento';
+    document.getElementById('modalSub').textContent = 'Adicione uma nova etapa à rotina. Ela ficará disponível para todas as colaboradoras imediatamente.';
+    document.getElementById('etapaNome').value = '';
+    document.getElementById('btnExcluirEtapa').style.display = 'none';
+    renderCorPicker();
+    document.getElementById('etapaModal').classList.add('show');
+    setTimeout(() => document.getElementById('etapaNome').focus(), 100);
+  }
+
+  function openEditEtapaModal(slug) {
+    const etapa = etapaBySlug(slug);
+    if (!etapa) return;
+    modalMode = 'edit';
+    editingEtapaSlug = slug;
+    selectedNovaEtapaCor = etapa.cor;
+    document.getElementById('modalTitle').textContent = `Editar tipo: ${etapa.nome}`;
+    document.getElementById('modalSub').textContent = etapa.fixa
+      ? 'Esta é uma etapa padrão. Você pode ajustar o nome e a cor, mas ela não pode ser excluída.'
+      : 'Ajuste o nome ou a cor. Use "Excluir" para remover esta etapa de todas as colaboradoras.';
+    document.getElementById('etapaNome').value = etapa.nome;
+    document.getElementById('btnExcluirEtapa').style.display = etapa.fixa ? 'none' : 'inline-block';
+    renderCorPicker();
+    document.getElementById('etapaModal').classList.add('show');
+    setTimeout(() => document.getElementById('etapaNome').focus(), 100);
+  }
+
+  function closeEtapaModal() { document.getElementById('etapaModal').classList.remove('show'); }
+
+  function renderCorPicker() {
+    const cores = document.getElementById('etapaCores');
+    const todasCores = [...new Set([selectedNovaEtapaCor, ...CORES_DISPONIVEIS])];
+    cores.innerHTML = todasCores.map(c =>
       `<div class="color-opt ${c===selectedNovaEtapaCor?'active':''}" style="background:${c}" onclick="selectNovaCor('${c}',this)"></div>`
     ).join('');
-    document.getElementById('newEtapaNome').value = '';
-    document.getElementById('newEtapaModal').classList.add('show');
-    setTimeout(() => document.getElementById('newEtapaNome').focus(), 100);
   }
-  function closeNewEtapaModal() { document.getElementById('newEtapaModal').classList.remove('show'); }
+
   function selectNovaCor(c, el) {
     selectedNovaEtapaCor = c;
-    document.querySelectorAll('#newEtapaCores .color-opt').forEach(o => o.classList.remove('active'));
+    document.querySelectorAll('#etapaCores .color-opt').forEach(o => o.classList.remove('active'));
     el.classList.add('active');
   }
-  async function saveNewEtapa() {
-    const nome = document.getElementById('newEtapaNome').value.trim();
-    if (!nome) { document.getElementById('newEtapaNome').focus(); return; }
-    const slug = nome.toLowerCase()
-      .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
-      .replace(/[^a-z0-9]+/g,'_').replace(/^_|_$/g,'')
-      .substring(0, 40);
-    const ordem = etapas.length + 1;
-    showStatus('Adicionando...', '');
-    const { error } = await sb.from('cs_rotina_etapas').insert({ slug, nome, cor:selectedNovaEtapaCor, ordem, fixa:false });
-    if (error) { showStatus('Erro ao adicionar', 'error'); console.error(error); return; }
-    closeNewEtapaModal();
+
+  async function saveEtapa() {
+    const nome = document.getElementById('etapaNome').value.trim();
+    if (!nome) { document.getElementById('etapaNome').focus(); return; }
+
+    if (modalMode === 'new') {
+      const slug = nome.toLowerCase()
+        .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+        .replace(/[^a-z0-9]+/g,'_').replace(/^_|_$/g,'')
+        .substring(0, 40);
+      const ordem = etapas.length + 1;
+      showStatus('Adicionando...', '');
+      const { error } = await sb.from('cs_rotina_etapas').insert({ slug, nome, cor:selectedNovaEtapaCor, ordem, fixa:false });
+      if (error) { showStatus('Erro ao adicionar', 'error'); console.error(error); return; }
+    } else {
+      showStatus('Salvando...', '');
+      const { error } = await sb.from('cs_rotina_etapas')
+        .update({ nome, cor:selectedNovaEtapaCor })
+        .eq('slug', editingEtapaSlug);
+      if (error) { showStatus('Erro ao salvar', 'error'); console.error(error); return; }
+    }
+    closeEtapaModal();
     await loadPessoasEtapas();
     renderEtapasLegend();
     renderGrid();
-    showStatus('✓ Adicionado', 'saved');
+    showStatus('✓ Salvo', 'saved');
+  }
+
+  async function deleteEtapa() {
+    const etapa = etapaBySlug(editingEtapaSlug);
+    if (!etapa || etapa.fixa) return;
+    if (!confirm(`Excluir o tipo "${etapa.nome}"? Todas as células preenchidas com este tipo voltarão para "Selecionar".`)) return;
+    showStatus('Excluindo...', '');
+    const { error } = await sb.from('cs_rotina_etapas').delete().eq('slug', editingEtapaSlug);
+    if (error) { showStatus('Erro ao excluir', 'error'); console.error(error); return; }
+    closeEtapaModal();
+    await loadPessoasEtapas();
+    await loadCelulas();
+    renderEtapasLegend();
+    renderGrid();
+    showStatus('✓ Excluído', 'saved');
   }
 
   // ============ INIT ============
